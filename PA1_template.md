@@ -431,7 +431,7 @@ xyplot(mean ~ interval | daytype, mean_data,
        lwd=1,
        col="orange",
        xlab="Interval", 
-       ylab="Number of steps", 
+       ylab="Number of Steps", 
        layout=c(1,2))
 ```
 
