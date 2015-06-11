@@ -334,17 +334,20 @@ head(activity)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Make a panel plot containing a time series plot (i.e. type = “l”) of the 5- minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis):</li>
 </ol>
-<pre class="r"><code># Load the lattice graphical library
+<pre class="r"><code># Clear the workspace
+rm(sum_data)
+
+# Load the lattice graphical library
 library(lattice)
 
 # Compute the average number of steps taken, averaged across all daytype variable
-mean_data &lt;- aggregate(activity$steps,
-                by=list(activity$daytype,
-                activity$weekday, activity$interval), mean)
+mean_data &lt;- aggregate(activity$steps, 
+                       by=list(activity$daytype, 
+                               activity$weekday, activity$interval), mean)
 
 # Rename the attributes
 names(mean_data) &lt;- c(&quot;daytype&quot;, &quot;weekday&quot;, &quot;interval&quot;, &quot;mean&quot;)</code></pre>
-<p>We display the first few rows of the mean_data data frame:</p>
+<p>The first few rows of the mean_data data frame are displayed:</p>
 <pre class="r"><code>head(mean_data)</code></pre>
 <pre><code>##   daytype   weekday interval     mean
 ## 1 weekday   domingo        0 4.672825
