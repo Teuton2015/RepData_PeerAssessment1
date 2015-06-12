@@ -3,7 +3,7 @@ The assignment makes use of the data from a personal activity monitoring device.
 
 The dataset is stored in a comma-separated-value (CSV) file and there are a total of 17568 observations in it.
 
-## First of all, we need to set local settings to default for the C language that reflects North-American usage
+## Before all, we need to set local settings to default for the C language that reflects North-American usage
 
 ```r
 Sys.setlocale("LC_ALL", "C")
@@ -17,9 +17,9 @@ The assignment report will provide answers to the issues detailed below.
 
 
 ## Loading and preprocessing the data
-1) Set the correct R working directory with the setwd() function.
+Setting the correct R working directory with the setwd() function.
 
-2) For loading the data stored in the csv file in the working directory use the read.csv() function:
+1) For loading the data stored in the csv file in the working directory use the read.csv() function:
 
 ```r
 # Clear the workspace
@@ -29,7 +29,7 @@ rm(list=ls())
 activity_raw <- read.csv("activity.csv", stringsAsFactors=FALSE)
 ```
 
-3) Process/transform the data, if necessary, into a format suitable for analysis:
+2) Process/transform the data, if necessary, into a format suitable for analysis:
 
 ```r
 # Transform the date attribute to an actual date format
@@ -89,7 +89,7 @@ sum_data <- aggregate(activity$steps, by=list(activity$date), FUN=sum, na.rm=TRU
 names(sum_data) <- c("date", "total")
 ```
 
-2) To display the total number of steps each day:
+To display the total number of steps each day:
 
 ```r
 # To display all days
@@ -176,7 +176,7 @@ head(sum_data)
 ## 6 2012-10-06 15420
 ```
 
-3) The histogram of the total number of steps taken each day is made using the following lines of code:
+2) The histogram of the total number of steps taken each day is made using the following lines of code:
 
 ```r
 hist(sum_data$total, 
@@ -189,7 +189,7 @@ hist(sum_data$total,
 
 ![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
 
-4) To calculate and report the mean and median of the total number of steps taken per day:
+3) To calculate and report the mean and median of the total number of steps taken per day:
 
 ```r
 # The mean is:
@@ -241,7 +241,7 @@ head(mean_data)
 ## 6       25 2.0943396
 ```
 
-2) The following code creates the time series plot:
+The following code creates the time series plot:
 
 ```r
 # Compute the time series plot
@@ -257,7 +257,7 @@ plot(mean_data$interval,
 
 ![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
 
-3) Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?:
+2) Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?:
 
 ```r
 # We find the position of the maximum mean
@@ -297,7 +297,7 @@ NA_count
 ```
 The number of NAs is 2304.
 
-2) Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc:
+2) Devising a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc:
 
 ```r
 # Clear the workspace
