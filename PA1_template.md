@@ -434,7 +434,7 @@ head(mean_data)
 ## 6 weekday  tuesday        0 0.000000
 ```
 
-The time series plot take the following form:
+The time series plot takes the following form:
 
 ```r
 # Compute the time serie plot

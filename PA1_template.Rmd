@@ -253,7 +253,7 @@ To display the first few rows of the mean_data data frame:
 head(mean_data)
 ```
 
-The time series plot take the following form:
+The time series plot takes the following form:
 ```{r}
 # Compute the time serie plot
 xyplot(mean ~ interval | daytype, mean_data, 
