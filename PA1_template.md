@@ -17,9 +17,9 @@ The assignment report will provide answers to the issues detailed below.
 
 
 ## Loading and preprocessing the data
-1. Set the correct R working directory with the setwd() function.
+1) Set the correct R working directory with the setwd() function.
 
-2. For loading the data stored in the csv file in the working directory use the read.csv() function:
+2) For loading the data stored in the csv file in the working directory use the read.csv() function:
 
 ```r
 # Clear the workspace
@@ -29,7 +29,7 @@ rm(list=ls())
 activity_raw <- read.csv("activity.csv", stringsAsFactors=FALSE)
 ```
 
-3. Process/transform the data, if necessary, into a format suitable for analysis:
+3) Process/transform the data, if necessary, into a format suitable for analysis:
 
 ```r
 # Transform the date attribute to an actual date format
@@ -79,7 +79,7 @@ head(activity)
 
 For this part of the assignment, we ignore the missing values in the dataset.
 
-1. Calculate the total number of steps taken each day:
+1) Calculate the total number of steps taken each day:
 
 ```r
 # Compute the total number of steps each day (NA values removed)
@@ -89,7 +89,7 @@ sum_data <- aggregate(activity$steps, by=list(activity$date), FUN=sum, na.rm=TRU
 names(sum_data) <- c("date", "total")
 ```
 
-2. To display the total number of steps each day:
+2) To display the total number of steps each day:
 
 ```r
 # To display all days
@@ -176,7 +176,7 @@ head(sum_data)
 ## 6 2012-10-06 15420
 ```
 
-3. The histogram of the total number of steps taken each day is made using the following lines of code:
+3) The histogram of the total number of steps taken each day is made using the following lines of code:
 
 ```r
 hist(sum_data$total, 
@@ -189,7 +189,7 @@ hist(sum_data$total,
 
 ![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
 
-4. Calculate and report the mean and median of the total number of steps taken per day:
+4) To calculate and report the mean and median of the total number of steps taken per day:
 
 ```r
 # The mean is:
@@ -208,11 +208,11 @@ median(sum_data$total)
 ```
 ## [1] 10395
 ```
-These formulas gives a mean and median of 9354.23 and 10395 respectively.
+These formulas give a mean and median of 9354.23 and 10395 respectively.
 
 ## What is the average daily activity pattern?
 
-1. Making a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis):
+1) Making a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis):
 
 ```r
 # Compute the means of steps accross all days for each interval
@@ -241,7 +241,7 @@ head(mean_data)
 ## 6       25 2.0943396
 ```
 
-2. The following code creates the time series plot:
+2) The following code creates the time series plot:
 
 ```r
 # Compute the time series plot
@@ -257,7 +257,7 @@ plot(mean_data$interval,
 
 ![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
 
-3. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?:
+3) Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?:
 
 ```r
 # We find the position of the maximum mean
@@ -279,7 +279,7 @@ The 5-minute interval that contains the maximum of steps, on average across all 
 
 Note that there are a number of days/intervals where there are missing values (coded as NA). The presence of missing days may introduce bias into some calculations or summaries of the data.
 
-1. To calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NA's):
+1) To calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NA's):
 
 ```r
 # Clear the workspace
@@ -297,7 +297,7 @@ NA_count
 ```
 The number of NAs is 2304.
 
-2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc:
+2) Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc:
 
 ```r
 # Clear the workspace
@@ -312,7 +312,7 @@ mean_vec <- rep(mean(activity$steps, na.rm=TRUE), times=length(na_pos))
 
 The strategy used is to remplace each NA value by the mean of the steps attribute.
 
-3. To create a new dataset that is equal to the original dataset but with the missing data filled in:
+3) To create a new dataset that is equal to the original dataset but with the missing data filled in:
 
 ```r
 # Replace the NAs by the means
@@ -338,7 +338,7 @@ head(activity)
 ## 6 2012-10-01  monday weekday       25 37.3826
 ```
 
-4. To make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?:
+4) To make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?:
 
 ```r
 # Compute the total number of steps each day (NA values removed)
@@ -383,7 +383,7 @@ These values differ greatly from the estimates of the first part of the assignme
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-1. To create a new factor variable in the dataset with two levels - <93>weekdays<94> and <93>weekend<94> indicating whether a given date is a weekday or weekend day:
+1) To create a new factor variable in the dataset with two levels - <93>weekdays<94> and <93>weekend<94> indicating whether a given date is a weekday or weekend day:
 
 ```r
 # The new factor variable "daytype" was already in the activity data frame
@@ -400,7 +400,7 @@ head(activity)
 ## 6 2012-10-01  monday weekday       25 37.3826
 ```
 
-2. To make a panel plot containing a time series plot (i.e. type = "l") of the 5- minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis):
+2) To make a panel plot containing a time series plot (i.e. type = "l") of the 5- minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis):
 
 ```r
 # Clear the workspace
