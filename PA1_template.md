@@ -350,7 +350,7 @@ names(sum_data) <- c("date", "total")
 # Compute the histogram of the total number of steps each day
 hist(sum_data$total, 
      breaks=seq(from=0, to=25000, by=2500),
-     col="orange", 
+     col="yellow", 
      xlab="Total Number of Steps", 
      ylim=c(0, 30), 
      main="Histogram of the Total Number of Steps taken Each Day\n(NA Replaced by Mean Value)")
